@@ -13,6 +13,7 @@ When a discrete bypass of the trajectory occurs, the program remembers the point
 <br>
 ## How it actually works
 I'm using the following formula to calculate the mutual gravity at each iteration:
+<br>
 ![4](Images/GravityFormula.gif)
 <br>
 Then I add the corresponding acceleration multiplied by the iteration time to the speed:
