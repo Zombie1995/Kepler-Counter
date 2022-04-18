@@ -26,4 +26,7 @@ The movement is calculated according to the following formula:
 <br>
 ## Code
 The corresponding scripts are in \Assets\Scripts
+$$
+\frac{a}{b}
+$$
 
