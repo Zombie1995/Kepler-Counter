@@ -72,6 +72,7 @@ public class AreaDrawer : MonoBehaviour
             if (_areasPoints.Count > 2)
             {
                 _areasValues[_chosenArea] += DeltaArea();
+                _areaTexts[_chosenArea].text = "S= " + _areasValues[_chosenArea].ToString();
             }
 
             if (_areaTransparencyCount >= AreaTransparency)
@@ -86,7 +87,6 @@ public class AreaDrawer : MonoBehaviour
                 _areaCenterIndex = _areaCenterIndex % 2 == 0 ? _areaCenterIndex : _areaCenterIndex - 1;
                 Vector3 textPosition = DrawnAreasPoints[_areaCenterIndex] / 2 - DrawnAreasPoints[_areaCenterIndex + 1] * 3 / 2;
                 _textCanvases[_chosenArea].anchoredPosition3D = textPosition;
-                _areaTexts[_chosenArea].text = "S= " + _areasValues[_chosenArea].ToString();
 
                 _areaTransparencyCount = 0;
             }
