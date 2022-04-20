@@ -11,9 +11,9 @@ public class Gravity : MonoBehaviour
         foreach (Gravity otherObj in objs){
             if (otherObj != this){
                 float dist_sqrd = (transform.position - otherObj.transform.position).sqrMagnitude;
-                Vector3 diOfAcc = (transform.position - otherObj.transform.position).normalized;
+                Vector3 dirOfAcc = (transform.position - otherObj.transform.position).normalized;
                 
-                Vector3 accelerationToObj = diOfAcc * (gravitConst * Mass / dist_sqrd);
+                Vector3 accelerationToObj = dirOfAcc * (gravitConst * Mass / dist_sqrd);
                 
                 otherObj.CurVel += accelerationToObj * timeStep;
             }

@@ -21,7 +21,7 @@ public class AreaDrawer : MonoBehaviour
     private int _areaTransparencyCount = 0;
 
     private List<Vector3> _areasPoints = new List<Vector3>();
-    private List<Vector3> DrawnAreasPoints = new List<Vector3>();
+    private List<Vector3> _drawnAreasPoints = new List<Vector3>();
 
     private float[] _areasValues;
 
@@ -77,15 +77,15 @@ public class AreaDrawer : MonoBehaviour
 
             if (_areaTransparencyCount >= AreaTransparency)
             {
-                DrawnAreasPoints.Add(_areasPoints[_areasPoints.Count - 2]);
-                DrawnAreasPoints.Add(_areasPoints[_areasPoints.Count - 1]);
+                _drawnAreasPoints.Add(_areasPoints[_areasPoints.Count - 2]);
+                _drawnAreasPoints.Add(_areasPoints[_areasPoints.Count - 1]);
 
-                _areas[_chosenArea].positionCount = DrawnAreasPoints.Count;
-                _areas[_chosenArea].SetPositions(DrawnAreasPoints.ToArray());
+                _areas[_chosenArea].positionCount = _drawnAreasPoints.Count;
+                _areas[_chosenArea].SetPositions(_drawnAreasPoints.ToArray());
 
-                int _areaCenterIndex = (DrawnAreasPoints.Count - 1) / 2;
+                int _areaCenterIndex = (_drawnAreasPoints.Count - 1) / 2;
                 _areaCenterIndex = _areaCenterIndex % 2 == 0 ? _areaCenterIndex : _areaCenterIndex - 1;
-                Vector3 textPosition = DrawnAreasPoints[_areaCenterIndex] / 2 - DrawnAreasPoints[_areaCenterIndex + 1] * 3 / 2;
+                Vector3 textPosition = _drawnAreasPoints[_areaCenterIndex] / 2 - _drawnAreasPoints[_areaCenterIndex + 1] * 3 / 2;
                 _textCanvases[_chosenArea].anchoredPosition3D = textPosition;
 
                 _areaTransparencyCount = 0;
@@ -100,7 +100,7 @@ public class AreaDrawer : MonoBehaviour
                 _chosenArea++;
 
                 _areasPoints.Clear();
-                DrawnAreasPoints.Clear();
+                _drawnAreasPoints.Clear();
                 _timer = 0f;
                 Draw = false;
 
