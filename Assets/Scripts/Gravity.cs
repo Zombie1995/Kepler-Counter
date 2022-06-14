@@ -22,6 +22,6 @@ public class Gravity : MonoBehaviour
 
     public void Move(float timeStep) 
     {
-        transform.position += (CurVel / 2) * timeStep;
+        transform.position += CurVel * timeStep;
     }
 }
